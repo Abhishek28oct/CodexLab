@@ -13,6 +13,15 @@ app = FastAPI(
 )
 
 
+@app.get("/")
+def root() -> dict[str, str]:
+    return {
+        "message": "Codex Task Tracker API",
+        "docs": "/docs",
+        "health": "/health",
+    }
+
+
 @app.get("/health")
 def health_check() -> dict[str, str]:
     return {"status": "ok"}
